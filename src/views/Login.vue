@@ -16,12 +16,14 @@ export default {
   },
   methods: {
     login() {
-      //派发一个登录得action
+      var _this = this;
       this.$store
         .dispatch("user/login", { username: this.username })
         .then(() => {
-          this.$router.push({
-            path: this.$route.query.redirect || "/"
+          console.log(_this);
+          
+          _this.$router.push({
+            path: "/home"
           });
         })
         .catch(error => {
